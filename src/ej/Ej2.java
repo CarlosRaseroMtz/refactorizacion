@@ -3,26 +3,25 @@ package ej;
 public class Ej2 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		int filas = 5;
+        int columnas = 5;
+        int[][] arrayBidimensional = new int[filas][columnas];
 
-		int a = 5;
-		int b = 5;
-		int[][] ARRAYBIDI = new int[a][b];
+        // Rellenar el array bidimensional
+        for (int fila = 0; fila < filas; fila++) {
+            for (int columna = 0; columna < columnas; columna++) {
+                arrayBidimensional[fila][columna] = fila + columna;
+            }
+        }
 
-		// recorremos todo el array bidimensional
-		for (int xyz = 0; xyz < a; xyz++) {
-			for (int abc = 0; abc < b; abc++) {
-				ARRAYBIDI[xyz][abc] = xyz + abc;
-			}
-		}
-
-		System.out.println("Los valores de la tabla son:");
-		for (int variableQueSeRecorre = 0; variableQueSeRecorre < a; variableQueSeRecorre++) {
-			for (int variableQueSeRecorre2 = 0; variableQueSeRecorre2 < b; variableQueSeRecorre2++) {
-				System.out.print(ARRAYBIDI[variableQueSeRecorre][variableQueSeRecorre2] + " ");
-			}
-		}
-
+        // Imprimir los valores del array bidimensional
+        System.out.println("Los valores de la tabla son:");
+        for (int fila = 0; fila < filas; fila++) {
+            for (int columna = 0; columna < columnas; columna++) {
+                System.out.print(arrayBidimensional[fila][columna] + " ");
+            }
+            System.out.println(); // Agregar nueva línea después de cada fila
+        }
 	}
 
 }
