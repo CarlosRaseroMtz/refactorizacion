@@ -5,42 +5,42 @@ import java.util.Scanner;
 public class Ej3 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int n1 = 0;
-		int n2 = 0;
+		int base = 0;
+		int exponente = 0;
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Diga la base");
-		n1 = sc.nextInt();
-		System.out.println("Diga la potencia");
-		while (n2 < 0 || n2 ==0) {
-			n2 = sc.nextInt();
+		System.out.println("Diga la base: ");
+		base = sc.nextInt();
+		System.out.println("Diga la potencia: ");
+		exponente = sc.nextInt();
+		while ( exponente=< 0 ) {
+			exponente = sc.nextInt();
 		}
-		System.out.println("El resultado es " + calcula(n1, n2));
-		System.out.println("El resultado es "+calcula2(n1, n2));
+		
+		System.out.println("El resultado es " + calcula(base, exponente));
+		System.out.println("El resultado es "+calcula2(base, exponente));
 		sc.close();
 	}
 
 	// version iterativa
-	public static int calcula(int a, int n) {
-		int fortnite = 1;
+	public static int potenciaIterativa(int base, int exponente) {
+		int potencia = 1;
 
-		for (int battleRpoyale = 0; battleRpoyale < n; battleRpoyale++) {
-			fortnite *= a;
+		for (int i = 0; i < n; i++) {
+			potencia *= base;
 		}
-		return fortnite;
+		return potencia;
 	}
 
 	// version recursiva
-	public static int calcula2(int a, int n) {
-		int xd = 1;
-		if (n < 1 && n > -1) {
+	public static int potenciaRecursiva(int base, int exponente) {
+		int potencia = 1;
+		if (n == 0) {
 			xd = 1;
-		}else {
-			xd = a * (calcula2(a, (n-1)));
+		} else {
+			potencia = base * (potenciaRecursiva(base, (exponente - 1)));
 		}
-
-		return xd;
+		return potencia;
 
 	}
 

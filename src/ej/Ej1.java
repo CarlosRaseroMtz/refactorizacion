@@ -6,57 +6,59 @@ public class Ej1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner s = new Scanner(System.in);
-		int ta = 0;
-		int arr[];
+		Scanner sc = new Scanner(System.in);
+		int tama�oArray = 0;
+		int numeros[];
 
-		System.out.println("Diga el tamaño");
-		ta = s.nextInt();
+		System.out.println("Indique el tama�o del array: ");
+		tama�oArray = sc.nextInt();
 
-		arr = new int[ta];
+		numeros = new int[tama�oArray];
 
-		System.out.println("Escriba los números");
+		System.out.println("Escriba los numeros: ");
 		for (int f = 0; f < ta; f++) {
-			arr[f] = s.nextInt();
+			numeros[f] = sc.nextInt();
 		}
-		
-		System.out.println("La media de los números positivos es "+mePo(arr));
-		System.out.println("La media de los números negativos es "+meNe(arr));
-		System.out.println("El número de ceros que hay es "+count0(arr));
+
+		System.out.println("La media de los números positivos es " + mediaPositivos(numeros));
+		System.out.println("La media de los números negativos es " + mediaNegativos(numeros));
+		System.out.println("El número de ceros que hay es " + contadorCeros(numeros));
 	}
 
-	public static int mePo(int ar[]) {
-		int res = 0;
-		int x = 0;
-		for (int i = 0; i < ar.length; i++) {
-			if (ar[i] > 0) {
-				res += ar[i];
-				x++;
-			}
-		}
-		return res / x;
-	}
-
-	public static int meNe(int matrix[]) {
-		int answer = 0;
+	public static int mediaPositivos(int numeros[]) {
+		int suma = 0;
 		int contador = 0;
-		for (int i = 0; i < matrix.length; i++) {
-			if (matrix[i] < 0) {
-				answer += matrix[i];
+		int media = suma / contador;
+		for (int i = 0; i < ar.length; i++) {
+			if (numeros[i] > 0) {
+				suma += numeros[i];
 				contador++;
 			}
 		}
-		return answer / contador;
+		return media;
 	}
 
-	public static int count0(int array[]) {
-		int res = 0;
-		for (int i = 0; i < array.length; i++) {
-			if (array[i] == 0) {
-				res++;
+	public static int mediaNegativos(int numeros[]) {
+		int suma = 0;
+		int contador = 0;
+		int media = suma / contador;
+		for (int i = 0; i < numeros.length; i++) {
+			if (numeros[i] < 0) {
+				suma += matrix[i];
+				contador++;
 			}
 		}
-		return res;
+		return media;
+	}
+
+	public static int contadorCeros(int numeros[]) {
+		int contador = 0;
+		for (int i = 0; i < array.length; i++) {
+			if (numeros[i] == 0) {
+				suma++;
+			}
+		}
+		return contador;
 	}
 
 }
