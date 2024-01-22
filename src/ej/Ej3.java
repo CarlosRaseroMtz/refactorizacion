@@ -5,43 +5,45 @@ import java.util.Scanner;
 public class Ej3 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int n1 = 0;
-		int n2 = 0;
-		Scanner sc = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Diga la base");
-		n1 = sc.nextInt();
-		System.out.println("Diga la potencia");
-		while (n2 < 0 || n2 ==0) {
-			n2 = sc.nextInt();
-		}
-		System.out.println("El resultado es " + calcula(n1, n2));
-		System.out.println("El resultado es "+calcula2(n1, n2));
-		sc.close();
-	}
+        System.out.println("Ingrese la base:");
+        int base = scanner.nextInt();
 
-	// version iterativa
-	public static int calcula(int a, int n) {
-		int fortnite = 1;
+        System.out.println("Ingrese la potencia:");
+        int exponente = obtenerExponenteValido(scanner);
 
-		for (int battleRpoyale = 0; battleRpoyale < n; battleRpoyale++) {
-			fortnite *= a;
-		}
-		return fortnite;
-	}
+        System.out.println("El resultado es (versión iterativa): " + calcularPotenciaIterativa(base, exponente));
+      
+        scanner.close();
+    }
 
-	// version recursiva
-	public static int calcula2(int a, int n) {
-		int xd = 1;
-		if (n < 1 && n > -1) {
-			xd = 1;
-		}else {
-			xd = a * (calcula2(a, (n-1)));
-		}
+    private static int obtenerExponenteValido(Scanner scanner) {
+        int exponente = 0;
+        while (exponente <= 0) {
+            System.out.println("El exponente debe ser mayor que 0. Ingrese nuevamente:");
+            exponente = scanner.nextInt();
+        }
+        return exponente;
+    }
 
-		return xd;
+    // versión iterativa
+    public static int calcularPotenciaIterativa(int base, int exponente) {
+        int resultado = 1;
 
-	}
+        for (int i = 0; i < exponente; i++) {
+            resultado *= base;
+        }
+
+        return resultado;
+    }
+
+    // versión recursiva
+    public static int calcularPotenciaRecursiva(int base, int exponente) {
+        if (exponente == 0) {
+            return 1;
+        }
+        return base * calcularPotenciaRecursiva(base, exponente - 1);
+    }
 
 }
